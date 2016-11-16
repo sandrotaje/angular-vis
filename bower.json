@@ -1,0 +1,24 @@
+{
+  "name": "angular-vis",
+  "main": "angular-vis.js",
+  "version": "0.0.1",
+  "authors": [
+    "Sandro Tajè <sandro.taje@holonix.it>"
+  ],
+  "description": "Angular lib for vis.js chart library",
+  "keywords": [
+    "angular",
+    "vis.js",
+    "vis",
+    "chart"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
