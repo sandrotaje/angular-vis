@@ -225,7 +225,7 @@ angular.module('angular-vis', [])
             });
 
             scope.$watch('window', function(window) {
-                if (graph) {
+                if (graph && window) {
                     graph.setWindow(window.start, window.end);
                     // graph.moveTo(window.end - (window.end-window.start)/2, 1000);
                 }
