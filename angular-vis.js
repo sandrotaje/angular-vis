@@ -201,6 +201,9 @@ angular.module('angular-vis', [])
 
                 // Create the graph2d object
                 graph = new vis.Graph2d(element[0], scope.data.items, scope.data.groups, scope.options);
+                if (scope.window && scope.window.centerTimeBar) {
+                    graph.addCustomTime(scope.window.end - (scope.window.end - scope.window.start)/2, "centerTimeBar");
+                }
 
                 // Attach an event handler if defined
                 angular.forEach(scope.events, function(callback, event) {
@@ -226,8 +229,14 @@ angular.module('angular-vis', [])
 
             scope.$watch('window', function(window) {
                 if (graph && window) {
-                    graph.setWindow(window.start, window.end);
-                    // graph.moveTo(window.end - (window.end-window.start)/2, 1000);
+                    if (window.centerTimeBar) {
+                        graph.setCustomTime(scope.window.end - (scope.window.end - scope.window.start)/2, "centerTimeBar");
+                    }
+                    if (window.options) {
+                        graph.setWindow(window.start, window.end, window.options);
+                    } else {
+                        graph.setWindow(window.start, window.end);
+                    }
                 }
             }, true);
 
