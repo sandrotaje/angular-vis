@@ -19,7 +19,8 @@ angular.module('angular-vis', [])
         scope: {
             data: '=',
             options: '=',
-            events: '='
+            events: '=',
+            window: "="
         },
         link: function(scope, element, attr) {
             var timelineEvents = [
@@ -71,6 +72,16 @@ angular.module('angular-vis', [])
                 }
                 timeline.setOptions(options);
             });
+
+            scope.$watch('window', function(window) {
+                if (timeline && window) {
+                    if (window.options) {
+                        timeline.setWindow(window.start, window.end, window.options);
+                    } else {
+                        timeline.setWindow(window.start, window.end);
+                    }
+                }
+            }, true);
 
 
         }

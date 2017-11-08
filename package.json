@@ -1,6 +1,6 @@
 {
   "name": "angular-vis",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Angular directive for vis.js",
   "main": "angular-vis.js",
   "scripts": {
